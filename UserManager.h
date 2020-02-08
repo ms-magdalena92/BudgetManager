@@ -7,6 +7,7 @@
 
 #include "User.h"
 #include "UsersFile.h"
+#include "AdjuvantMethods.h"
 
 using namespace std;
 
@@ -30,6 +31,9 @@ public:
     void userSignIn();
     void userSignOut();
     void viewAllUsers();
+    bool isUserLoggedIn();
+    char selectFromMainMenu();
+    char selectFromUserMenu();
 };
 
 #endif // USERMANAGER_H

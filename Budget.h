@@ -18,6 +18,9 @@ public:
     void userSignIn();
     void userSignOut();
     void viewAllUsers();
+    bool isUserLoggedIn();
+    char selectFromMainMenu();
+    char selectFromUserMenu();
 };
 
 #endif // BUDGET_H
