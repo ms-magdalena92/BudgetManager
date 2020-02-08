@@ -34,6 +34,7 @@ public:
     bool isUserLoggedIn();
     char selectFromMainMenu();
     char selectFromUserMenu();
+    int getCurrentUserId();
 };
 
 #endif // USERMANAGER_H

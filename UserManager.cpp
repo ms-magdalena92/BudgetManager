@@ -164,3 +164,7 @@ void UserManager::userSignOut()
 {
     currentUserId = 0;
 }
+int UserManager::getCurrentUserId()
+{
+    return currentUserId;
+}

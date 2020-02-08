@@ -41,7 +41,7 @@ int main()
             switch (choice)
             {
             case '1':
-                //budget.addIncome();
+                budget.addIncome();
                 break;
             case '2':
                 //budget.addExpense();
@@ -60,6 +60,9 @@ int main()
                 break;
             case '7':
                 budget.userSignOut();
+                break;
+            case '8':
+                budget.viewAllIncomes();
                 break;
             }
         }
