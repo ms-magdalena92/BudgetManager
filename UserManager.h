@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <windows.h>
 
 #include "User.h"
 
@@ -12,6 +13,10 @@ class UserManager
 {
     int currentUserId;
     vector<User> users;
+
+    User provideNewUserData();
+    int getNewUserId();
+    bool isUsernameAvailable(string login);
 
 public:
     UserManager(string usersFilename)
