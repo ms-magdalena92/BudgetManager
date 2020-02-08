@@ -10,8 +10,7 @@ class Budget
     UserManager userManager;
 
 public:
-    Budget(string usersFilename)
-        :userManager(usersFilename)
+    Budget(string usersFilename):userManager(usersFilename)
     {};
     ~Budget()
     {}

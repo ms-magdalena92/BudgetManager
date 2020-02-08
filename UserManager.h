@@ -6,6 +6,7 @@
 #include <windows.h>
 
 #include "User.h"
+#include "UsersFile.h"
 
 using namespace std;
 
@@ -13,15 +14,17 @@ class UserManager
 {
     int currentUserId;
     vector<User> users;
+    UsersFile usersFile;
 
     User provideNewUserData();
     int getNewUserId();
     bool isUsernameAvailable(string login);
 
 public:
-    UserManager(string usersFilename)
+    UserManager(string usersFilename):usersFile(usersFilename)
     {
         currentUserId = 0;
+        users = usersFile.loadUsersFromXmlFile();
     };
     void userSignUp();
     void userSignIn();

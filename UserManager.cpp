@@ -4,6 +4,8 @@ void UserManager::userSignUp()
 {
     User user = provideNewUserData();
     users.push_back(user);
+    usersFile.addUserToXmlFile(user);
+    cout << "Your account was successfully created." << endl;
     system("pause");
 }
 User UserManager::provideNewUserData()
@@ -14,7 +16,8 @@ User UserManager::provideNewUserData()
     string login;
     do
     {
-        cout << "Enter login: ";
+        system("cls");
+        cout << "Enter username: ";
         cin >> login;
         user.setLogin(login);
     }
@@ -50,7 +53,8 @@ bool UserManager::isUsernameAvailable(string login)
     {
         if (users[i].getLogin() == login)
         {
-            cout << endl << "Username unavailable" << endl;
+            cout << endl << "Username unavailable" << endl << endl;
+            system("pause");
             return false;
         }
     }
@@ -71,8 +75,8 @@ void UserManager::viewAllUsers()
             cout << itr -> getName() << endl;
             cout << itr -> getSurname() << endl;
         }
-    }
     system("pause");
+    }
     return;
 }
 void UserManager::userSignOut()
