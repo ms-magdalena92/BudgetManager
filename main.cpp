@@ -7,9 +7,6 @@ using namespace std;
 int main()
 {
     Budget budget("users.xml");
-    budget.viewAllUsers();
-    budget.userSignUp();
-    budget.userSignUp();
-    budget.viewAllUsers();
+    budget.userSignIn();
     return 0;
 }

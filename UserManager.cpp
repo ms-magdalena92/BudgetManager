@@ -62,6 +62,45 @@ bool UserManager::isUsernameAvailable(string login)
 }
 void UserManager::userSignIn()
 {
+    string login = "", password = "";
+    cout << "Enter username: ";
+    cin >> login;
+    vector <User>::iterator itr = users.begin();
+    while (itr != users.end())
+    {
+        if (itr -> getLogin() == login)
+        {
+            for (int numberOfAttempts = 3; numberOfAttempts > 0; numberOfAttempts--)
+            {
+                if (numberOfAttempts!=1)
+                {
+                    cout << "Enter password (" << numberOfAttempts << " attempts left): ";
+                }
+                else
+                {
+                    cout << "Enter password (" << numberOfAttempts << " attempt left): ";
+                }
+                cin >> password;
+
+                if (itr -> getPassword() == password)
+                {
+                    currentUserId = itr -> getUserId();
+                    cout << endl << "You have successfully signed in." << endl << endl;
+                    system("pause");
+                    return;
+
+                }
+            }
+            cout << endl << "3 unsuccessful login attempts." << endl;
+            system("pause");
+            return;
+        }
+        itr++;
+
+    }
+    cout << "Username does not exist" << endl << endl;
+    system("pause");
+    return;
 }
 void UserManager::viewAllUsers()
 {
@@ -75,7 +114,7 @@ void UserManager::viewAllUsers()
             cout << itr -> getName() << endl;
             cout << itr -> getSurname() << endl;
         }
-    system("pause");
+        system("pause");
     }
     return;
 }
