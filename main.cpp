@@ -1,9 +1,11 @@
 #include <iostream>
 
+#include "Budget.h"
+
 using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    Budget budget();
     return 0;
 }
