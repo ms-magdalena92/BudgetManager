@@ -8,6 +8,7 @@
 #include "Income.h"
 #include "Expense.h"
 #include "AdjuvantMethods.h"
+#include "IncomesFile.h"
 
 using namespace std;
 
@@ -16,14 +17,17 @@ class FinanceManager
     const int CURRENT_USER_ID;
     vector<Income> incomes;
     vector<Expense> expenses;
+    IncomesFile incomesFile;
 
     Income provideNewIncomeData();
     int getNewIncomeId();
 
 public:
-    FinanceManager(int currentUserId)
-    : CURRENT_USER_ID(currentUserId)
-    {};
+    FinanceManager(int currentUserId, string incomesFilename)
+    : CURRENT_USER_ID(currentUserId), incomesFile(incomesFilename)
+    {
+        incomes = incomesFile.loadIncomesOfCurrentUserFromXmlFile(CURRENT_USER_ID);
+    };
     void addIncome();
     void viewAllIncomes();
 };

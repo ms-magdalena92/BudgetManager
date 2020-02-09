@@ -18,6 +18,7 @@ public:
     static string intToStringConversion (int number);
     static int stringToIntConversion(string snumber);
     static int changeDateToIntNumber(string sdate);
+    static string changeIntDateTOString(int date);
 };
 
 #endif // ADJUVANTMETHODS_H

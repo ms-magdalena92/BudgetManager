@@ -8,8 +8,8 @@ void FinanceManager::addIncome()
     income = provideNewIncomeData();
 
     incomes.push_back(income);
+    incomesFile.addIncomeToXmlFile(income);
     cout << endl << "The item was successfully added." << endl;
-    //incomesFile.addIncomeToXmlFile(income);
 }
 
 Income FinanceManager::provideNewIncomeData()
@@ -40,20 +40,13 @@ Income FinanceManager::provideNewIncomeData()
     cout << "Enter amount: ";
     cin >> amount;
 
-    income.setIncomeId(getNewIncomeId());
+    income.setIncomeId(incomesFile.getLastIncomeId() + 1);
     income.setUserId(CURRENT_USER_ID);
     income.setDate(date);
     income.setItem(item);
     income.setAmount(amount);
 
     return income;
-}
-int FinanceManager::getNewIncomeId()
-{
-    if(incomes.empty())
-        return 1;
-    else
-        return incomes.back().getIncomeId() + 1;
 }
 
 void FinanceManager::viewAllIncomes()

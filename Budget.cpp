@@ -9,7 +9,7 @@ void Budget::userSignIn()
     userManager.userSignIn();
     if (userManager.isUserLoggedIn())
     {
-        financeManager = new FinanceManager(userManager.getCurrentUserId());
+        financeManager = new FinanceManager(userManager.getCurrentUserId(), INCOMES_FILENAME);
     }
 }
 void Budget::userSignOut()

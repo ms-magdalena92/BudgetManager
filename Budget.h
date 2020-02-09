@@ -10,9 +10,10 @@ class Budget
 {
     UserManager userManager;
     FinanceManager *financeManager;
+    const string INCOMES_FILENAME;
 
 public:
-    Budget(string usersFilename):userManager(usersFilename)
+    Budget(string usersFilename, string incomesFilename):userManager(usersFilename), INCOMES_FILENAME(incomesFilename)
     {
         financeManager = NULL;
     };

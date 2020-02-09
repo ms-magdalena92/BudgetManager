@@ -87,4 +87,8 @@ int AdjuvantMethods::changeDateToIntNumber(string sdate)
     date+=dateElement;
     return stringToIntConversion(date);
 }
+string AdjuvantMethods::changeIntDateTOString(int date)
+{
+    return "date";
+}
 
