@@ -3,37 +3,26 @@
 void FinanceManager::addIncome()
 {
     Income income;
-    system("cls");
-    cout << " >>> ADDING NEW INCOME <<<" << endl << endl;
     income = provideNewIncomeData();
 
     incomes.push_back(income);
-    incomesFile.addIncomeToXmlFile(income);
+    incomesFile.addIncomeToXmlFile(income,date);
     cout << endl << "The item was successfully added." << endl;
+    system ("pause");
 }
-
 Income FinanceManager::provideNewIncomeData()
 {
-    string sdate, item;
+    string dateString = "", item = "";
     double amount;
-    int date;
+    int dateInteger;
+    char choice;
 
     Income income;
 
-    cout << "Enter date (yyyy-mm-dd): ";
-
-    while (true)
-    {
-        sdate = AdjuvantMethods::getLine();
-
-        if(AdjuvantMethods::isDateCorrect(sdate))
-        {
-            date = AdjuvantMethods::changeDateToIntNumber(sdate);
-            break;
-        }
-        else
-            cout << "Date is not valid. Enter the date again." << endl;
-    }
+    system("cls");
+    cout << " >>> ADDING NEW INCOME <<<" << endl << endl;
+    cout << "Do you want to add income with today's date? (Y/N)" << endl;
+    date.getDate();
     cout << "Enter item: ";
     cin.sync();
     item = AdjuvantMethods::getLine();
@@ -42,13 +31,12 @@ Income FinanceManager::provideNewIncomeData()
 
     income.setIncomeId(incomesFile.getLastIncomeId() + 1);
     income.setUserId(CURRENT_USER_ID);
-    income.setDate(date);
+    income.setDate(date.getDateInteger());
     income.setItem(item);
     income.setAmount(amount);
 
     return income;
 }
-
 void FinanceManager::viewAllIncomes()
 {
     for (vector <Income>::iterator itr = incomes.begin(); itr != incomes.end(); itr++)

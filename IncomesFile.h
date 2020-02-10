@@ -9,12 +9,14 @@
 #include "XmlFile.h"
 #include "Income.h"
 #include "AdjuvantMethods.h"
+#include "Date.h"
 
 using namespace std;
 
 class IncomesFile : public XmlFile
 {
     int lastIncomeId;
+    Date date;
 
     int getLastIncomeIdFromFile();
 public:
@@ -23,7 +25,7 @@ public:
         lastIncomeId = getLastIncomeIdFromFile();
     };
     vector<Income> loadIncomesOfCurrentUserFromXmlFile(int CURRENT_USER_ID);
-    void addIncomeToXmlFile(Income income);
+    void addIncomeToXmlFile(Income income, Date date);
     int getLastIncomeId();
 };
 
