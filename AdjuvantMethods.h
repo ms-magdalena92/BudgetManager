@@ -4,21 +4,18 @@
 #include <iostream>
 #include <sstream>
 #include <windows.h>
+#include <ctime>
 
 using namespace std;
 
 class AdjuvantMethods
 {
-    static bool isYearLeap (int year);
-
 public:
     static char getChar();
     static string getLine();
-    static bool isDateCorrect(string date);
     static string intToStringConversion (int number);
     static int stringToIntConversion(string snumber);
-    static int changeDateToIntNumber(string sdate);
-    static string changeIntDateTOString(int date);
+    static bool isLetter(char choice);
 };
 
 #endif // ADJUVANTMETHODS_H

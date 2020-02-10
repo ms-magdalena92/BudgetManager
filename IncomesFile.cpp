@@ -2,6 +2,7 @@
 
 vector<Income> IncomesFile::loadIncomesOfCurrentUserFromXmlFile(int CURRENT_USER_ID)
 {
+    Date date;
     CMarkup xml;
     vector <Income> incomes;
 
@@ -20,7 +21,7 @@ vector<Income> IncomesFile::loadIncomesOfCurrentUserFromXmlFile(int CURRENT_USER
                 xml.FindElem("IncomeId");
                 income.setIncomeId(atoi((xml.GetElemContent()).c_str()));
                 xml.FindElem("Date");
-                income.setDate(AdjuvantMethods::changeDateToIntNumber(xml.GetElemContent()));
+                income.setDate(date.changeDateToIntNumber(xml.GetElemContent()));
                 xml.FindElem("Item");
                 income.setItem(xml.GetElemContent());
                 xml.FindElem("Amount");
@@ -32,7 +33,7 @@ vector<Income> IncomesFile::loadIncomesOfCurrentUserFromXmlFile(int CURRENT_USER
     }
     return incomes;
 }
-void IncomesFile::addIncomeToXmlFile(Income income)
+void IncomesFile::addIncomeToXmlFile(Income income, Date date)
 {
     CMarkup xml;
 
@@ -47,7 +48,7 @@ void IncomesFile::addIncomeToXmlFile(Income income)
     xml.IntoElem();
     xml.AddElem("IncomeId", income.getIncomeId());
     xml.AddElem("UserId", income.getUserId());
-    xml.AddElem("Date", AdjuvantMethods::changeIntDateTOString(income.getDate()));
+    xml.AddElem("Date", date.getDateString());
     xml.AddElem("Item", income.getItem());
     xml.AddElem("Amount", income.getAmount());
     xml.OutOfElem();

@@ -9,6 +9,7 @@
 #include "Expense.h"
 #include "AdjuvantMethods.h"
 #include "IncomesFile.h"
+#include "Date.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ class FinanceManager
     vector<Income> incomes;
     vector<Expense> expenses;
     IncomesFile incomesFile;
+    Date date;
 
     Income provideNewIncomeData();
     int getNewIncomeId();
