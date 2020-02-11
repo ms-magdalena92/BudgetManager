@@ -41,4 +41,48 @@ bool AdjuvantMethods::isLetter(char choice)
         return false;
     return true;
 }
+float AdjuvantMethods::getFloatNumber()
+{
+    string input = "";
+    float number = 0;
 
+    while (true)
+    {
+        getline(cin, input);
+        if(isFloatNumber(input))
+            break;
+        cout << "It is not a number. Enter again." << endl;
+    }
+    number = stringToFloatConversion(input);
+    return number;
+}
+string AdjuvantMethods::floatToStringConversion(float fnumber)
+{
+    ostringstream ss;
+    ss << fnumber;
+    string str = ss.str();
+    return str;
+}
+float AdjuvantMethods::stringToFloatConversion(string snumber)
+{
+    float number;
+    istringstream iss(snumber);
+    iss >> number;
+    return number;
+}
+bool AdjuvantMethods::isFloatNumber(string input)
+{
+    size_t found = input.find_first_not_of("1234567890.,");
+    if (found == string::npos)
+    {
+        found = input.find_first_not_of("1234567890");
+        if(found == string::npos)
+            return true;
+        else if(found == input.find_last_not_of("1234567890"))
+        {
+            input.replace(found, 1, ".");
+            return true;
+        }
+    }
+    return false;
+}

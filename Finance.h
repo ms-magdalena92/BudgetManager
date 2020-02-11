@@ -10,7 +10,7 @@ class Finance
     int userId;
     int date;
     string item;
-    double amount;
+    float amount;
 
 public:
     void setUserId(int newUserId);
@@ -20,7 +20,7 @@ public:
     int getUserId();
     int getDate();
     string getItem();
-    double getAmount();
+    float getAmount();
 };
 
 #endif // FINANCE_H

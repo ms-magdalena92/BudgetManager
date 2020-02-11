@@ -12,9 +12,8 @@ void FinanceManager::addIncome()
 }
 Income FinanceManager::provideNewIncomeData()
 {
-    string dateString = "", item = "";
-    double amount;
-    int dateInteger;
+    string item = "";
+    float amount = 0;
     char choice;
 
     Income income;
@@ -27,7 +26,7 @@ Income FinanceManager::provideNewIncomeData()
     cin.sync();
     item = AdjuvantMethods::getLine();
     cout << "Enter amount: ";
-    cin >> amount;
+    amount = AdjuvantMethods::getFloatNumber();
 
     income.setIncomeId(incomesFile.getLastIncomeId() + 1);
     income.setUserId(CURRENT_USER_ID);
