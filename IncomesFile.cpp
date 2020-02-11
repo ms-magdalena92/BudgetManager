@@ -50,7 +50,7 @@ void IncomesFile::addIncomeToXmlFile(Income income, Date date)
     xml.AddElem("UserId", income.getUserId());
     xml.AddElem("Date", date.getDateString());
     xml.AddElem("Item", income.getItem());
-    xml.AddElem("Amount", income.getAmount());
+    xml.AddElem("Amount", AdjuvantMethods::floatToStringConversion(income.getAmount()));
     xml.OutOfElem();
     xml.Save(getFilename());
     lastIncomeId++;

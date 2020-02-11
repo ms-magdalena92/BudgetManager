@@ -28,7 +28,7 @@ string Finance::getItem()
 {
     return item;
 }
-double Finance::getAmount()
+float Finance::getAmount()
 {
     return amount;
 }
