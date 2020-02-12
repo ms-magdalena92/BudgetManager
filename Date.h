@@ -19,17 +19,17 @@ class Date
     string syear, smonth, sday;
 
     string createDate();
-    bool isYearLeap ();
-    bool isDateInProperRange(int date);
+    bool isYearLeap (int year);
+    bool isDateInProperRange();
     bool isDateCorrect();
 public:
     Date()
     {
         dateInteger = 0;
-        dateString = "";
         year = 0;
         month = 0;
         day = 0;
+        dateString = "";
         syear = "";
         smonth = "";
         sday = "";
