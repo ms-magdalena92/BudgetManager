@@ -50,7 +50,11 @@ float AdjuvantMethods::getFloatNumber()
     {
         getline(cin, input);
         if(isFloatNumber(input))
+        {
+            input = changeCommaToDot(input);
             break;
+        }
+
         cout << "It is not a number. Enter again." << endl;
     }
     number = stringToFloatConversion(input);
@@ -72,17 +76,30 @@ float AdjuvantMethods::stringToFloatConversion(string snumber)
 }
 bool AdjuvantMethods::isFloatNumber(string input)
 {
-    size_t found = input.find_first_not_of("1234567890.,");
-    if (found == string::npos)
+    if(input == "")
+        return false;
+    else
     {
-        found = input.find_first_not_of("1234567890");
-        if(found == string::npos)
-            return true;
-        else if(found == input.find_last_not_of("1234567890"))
+        size_t found = input.find_first_not_of("1234567890.,");
+
+        if (found == string::npos)
         {
-            input.replace(found, 1, ".");
-            return true;
+            found = input.find_first_not_of("1234567890");
+
+            if(found == string::npos)
+                return true;
+            else if(found == input.find_last_not_of("1234567890"))
+                return true;
         }
+        return false;
     }
-    return false;
+}
+string AdjuvantMethods::changeCommaToDot(string input)
+{
+    size_t foundComma = input.find(",");
+    if(foundComma != string::npos)
+    {
+        input.replace(foundComma, 1, ".");
+    }
+    return input;
 }
