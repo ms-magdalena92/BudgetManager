@@ -114,7 +114,7 @@ string Date::getCurrentDateFromSystem()
 }
 string Date::createDate()
 {
-    string sdate;
+    string sdate = "";
 
     syear = AdjuvantMethods::intToStringConversion(year);
     smonth = AdjuvantMethods::intToStringConversion(month);

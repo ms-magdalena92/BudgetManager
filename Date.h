@@ -14,7 +14,6 @@ class Date
 {
     int dateInteger;
     int year, month, day;
-
     string dateString;
     string syear, smonth, sday;
 
@@ -22,9 +21,9 @@ class Date
     bool isYearLeap (int year);
     bool isDateInProperRange();
     bool isDateCorrect();
+
 public:
-    Date()
-    {
+    Date(){
         dateInteger = 0;
         year = 0;
         month = 0;
