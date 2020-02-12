@@ -34,6 +34,7 @@ public:
     void addIncome();
     void addExpense();
     void viewAllIncomes();
+    void viewAllExpenses();
 };
 
 #endif // BUDGET_H

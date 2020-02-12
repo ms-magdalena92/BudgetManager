@@ -76,11 +76,33 @@ void FinanceManager::viewAllIncomes()
 {
     for (vector <Income>::iterator itr = incomes.begin(); itr != incomes.end(); itr++)
     {
-        cout << itr -> getIncomeId() << endl;
-        cout << itr -> getUserId() << endl;
-        cout << itr -> getDate() << endl;
-        cout << itr -> getItem() << endl;
-        cout << itr -> getAmount() << endl;
+        viewIncome(itr);
+        cout << endl;
     }
     system("pause");
+}
+void FinanceManager::viewIncome(vector <Income>::iterator itr)
+{
+    cout << itr -> getIncomeId() << endl;
+    cout << itr -> getUserId() << endl;
+    cout << date.changeDateTostring(itr -> getDate()) << endl;
+    cout << itr -> getItem() << endl;
+    cout << itr -> getAmount() << endl;
+}
+void FinanceManager::viewAllExpenses()
+{
+    for (vector <Expense>::iterator itr = expenses.begin(); itr != expenses.end(); itr++)
+    {
+        viewExpense(itr);
+        cout << endl;
+    }
+    system("pause");
+}
+void FinanceManager::viewExpense(vector <Expense>::iterator itr)
+{
+    cout << itr -> getExpenseId() << endl;
+    cout << itr -> getUserId() << endl;
+    cout << date.changeDateTostring(itr -> getDate()) << endl;
+    cout << itr -> getItem() << endl;
+    cout << itr -> getAmount() << endl;
 }

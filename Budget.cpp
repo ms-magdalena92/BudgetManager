@@ -47,3 +47,7 @@ void Budget::viewAllIncomes()
 {
     financeManager -> viewAllIncomes();
 }
+void Budget::viewAllExpenses()
+{
+    financeManager -> viewAllExpenses();
+}

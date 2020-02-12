@@ -64,6 +64,8 @@ int main()
             case '8':
                 budget.viewAllIncomes();
                 break;
+            case '9':
+                budget.viewAllExpenses();
             }
         }
     }

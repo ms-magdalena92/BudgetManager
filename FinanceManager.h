@@ -25,6 +25,9 @@ class FinanceManager
 
     Income provideNewIncomeData();
     Expense provideNewExpenseData();
+    void viewIncome(vector <Income>::iterator itr);
+    void viewExpense(vector <Expense>::iterator itr);
+
 public:
     FinanceManager(int currentUserId, string incomesFilename, string expensesFilename)
     : CURRENT_USER_ID(currentUserId), incomesFile(incomesFilename), expensesFile(expensesFilename)
@@ -35,6 +38,7 @@ public:
     void addIncome();
     void addExpense();
     void viewAllIncomes();
+    void viewAllExpenses();
 };
 
 #endif // FINANSEMANAGER_H
