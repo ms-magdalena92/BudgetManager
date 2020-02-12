@@ -138,3 +138,12 @@ bool Date::isDateInProperRange()
         return true;
     return false;
 }
+string Date::changeDateTostring(int date)
+{
+    string sdate = AdjuvantMethods::intToStringConversion(date);
+
+    sdate.insert(4,"-");
+    sdate.insert(7, "-");
+
+    return sdate;
+}

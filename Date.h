@@ -38,6 +38,7 @@ public:
     string getCurrentDateFromSystem();
     int changeDateToIntNumber(string sdate);
     void getDate();
+    string changeDateTostring(int date);
 };
 
 #endif // DATE_H
