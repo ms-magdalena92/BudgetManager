@@ -2,6 +2,9 @@
 #define XMLFILE_H
 
 #include <iostream>
+#include <vector>
+#include <sstream>
+#include <string>
 
 #include "Markup.h"
 

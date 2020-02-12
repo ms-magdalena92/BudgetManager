@@ -9,7 +9,7 @@ void Budget::userSignIn()
     userManager.userSignIn();
     if (userManager.isUserLoggedIn())
     {
-        financeManager = new FinanceManager(userManager.getCurrentUserId(), INCOMES_FILENAME);
+        financeManager = new FinanceManager(userManager.getCurrentUserId(), INCOMES_FILENAME, EXPENSES_FILENAME);
     }
 }
 void Budget::userSignOut()
@@ -38,6 +38,10 @@ char Budget::selectFromUserMenu()
 void Budget::addIncome()
 {
     financeManager -> addIncome();
+}
+void Budget::addExpense()
+{
+    financeManager -> addExpense();
 }
 void Budget::viewAllIncomes()
 {

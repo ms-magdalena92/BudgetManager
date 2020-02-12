@@ -7,7 +7,7 @@ void FinanceManager::addIncome()
 
     incomes.push_back(income);
     incomesFile.addIncomeToXmlFile(income,date);
-    cout << endl << "The item was successfully added." << endl;
+    cout << endl << "The income was successfully added." << endl;
     system ("pause");
 }
 Income FinanceManager::provideNewIncomeData()
@@ -35,6 +35,42 @@ Income FinanceManager::provideNewIncomeData()
     income.setAmount(amount);
 
     return income;
+}
+void FinanceManager::addExpense()
+{
+    Expense expense;
+    expense = provideNewExpenseData();
+
+    expenses.push_back(expense);
+    expensesFile.addExpenseToXmlFile(expense,date);
+    cout << endl << "The expense was successfully added." << endl;
+    system ("pause");
+}
+Expense FinanceManager::provideNewExpenseData()
+{
+    string item = "";
+    float amount = 0;
+    char choice;
+
+    Expense expense;
+
+    system("cls");
+    cout << " >>> ADDING NEW EXPENSE <<<" << endl << endl;
+    cout << "Do you want to add expense with today's date? (Y/N)" << endl;
+    date.getDate();
+    cout << "Enter item: ";
+    cin.sync();
+    item = AdjuvantMethods::getLine();
+    cout << "Enter amount: ";
+    amount = AdjuvantMethods::getFloatNumber();
+
+    expense.setExpenseId(expensesFile.getLastExpenseId() + 1);
+    expense.setUserId(CURRENT_USER_ID);
+    expense.setDate(date.getDateInteger());
+    expense.setItem(item);
+    expense.setAmount(amount);
+
+    return expense;
 }
 void FinanceManager::viewAllIncomes()
 {
