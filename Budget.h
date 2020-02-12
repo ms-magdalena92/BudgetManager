@@ -11,9 +11,11 @@ class Budget
     UserManager userManager;
     FinanceManager *financeManager;
     const string INCOMES_FILENAME;
+    const string EXPENSES_FILENAME;
 
 public:
-    Budget(string usersFilename, string incomesFilename):userManager(usersFilename), INCOMES_FILENAME(incomesFilename)
+    Budget(string usersFilename, string incomesFilename, string expensesFilename)
+    :userManager(usersFilename), INCOMES_FILENAME(incomesFilename), EXPENSES_FILENAME(expensesFilename)
     {
         financeManager = NULL;
     };
@@ -30,7 +32,9 @@ public:
     char selectFromMainMenu();
     char selectFromUserMenu();
     void addIncome();
+    void addExpense();
     void viewAllIncomes();
+    void viewAllExpenses();
 };
 
 #endif // BUDGET_H

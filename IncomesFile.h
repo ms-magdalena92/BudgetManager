@@ -1,11 +1,6 @@
 #ifndef INCOMESFILE_H
 #define INCOMESFILE_H
 
-#include <iostream>
-#include <vector>
-#include <sstream>
-#include <string>
-
 #include "XmlFile.h"
 #include "Income.h"
 #include "AdjuvantMethods.h"
