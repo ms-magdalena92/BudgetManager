@@ -13,6 +13,11 @@ class Finance
     float amount;
 
 public:
+    bool operator () (Finance a, Finance b)
+    {
+    if (a.getDate() < b.getDate())
+        return true;
+    }
     void setUserId(int newUserId);
     void setDate(int newDate);
     void setItem(string newItem);

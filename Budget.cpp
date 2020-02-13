@@ -51,3 +51,7 @@ void Budget::viewAllExpenses()
 {
     financeManager -> viewAllExpenses();
 }
+void Budget::viewCurrentMonthBalance()
+{
+    financeManager -> viewCurrentMonthBalance();
+}
