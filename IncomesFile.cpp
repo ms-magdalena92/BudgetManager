@@ -5,6 +5,7 @@ vector<Income> IncomesFile::loadIncomesOfCurrentUserFromXmlFile(int CURRENT_USER
     Date date;
     CMarkup xml;
     vector <Income> incomes;
+    int incomeId = 0;
 
     if (fileExist(xml))
     {
@@ -14,12 +15,13 @@ vector<Income> IncomesFile::loadIncomesOfCurrentUserFromXmlFile(int CURRENT_USER
         {
             Income income;
             xml.IntoElem();
+            xml.FindElem("IncomeId");
+            incomeId = atoi((xml.GetElemContent()).c_str());
             xml.FindElem("UserId");
             if (atoi((xml.GetElemContent()).c_str()) == CURRENT_USER_ID)
             {
-                income.setUserId(atoi((xml.GetElemContent()).c_str()));
-                xml.FindElem("IncomeId");
-                income.setIncomeId(atoi((xml.GetElemContent()).c_str()));
+                income.setUserId(CURRENT_USER_ID);
+                income.setIncomeId(incomeId);
                 xml.FindElem("Date");
                 income.setDate(date.changeDateToIntNumber(xml.GetElemContent()));
                 xml.FindElem("Item");

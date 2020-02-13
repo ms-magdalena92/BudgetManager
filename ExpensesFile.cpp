@@ -5,6 +5,7 @@ vector<Expense> ExpensesFile::loadExpensesOfCurrentUserFromXmlFile(int CURRENT_U
     Date date;
     CMarkup xml;
     vector <Expense> expenses;
+    int expenseId = 0;
 
     if (fileExist(xml))
     {
@@ -14,12 +15,13 @@ vector<Expense> ExpensesFile::loadExpensesOfCurrentUserFromXmlFile(int CURRENT_U
         {
             Expense expense;
             xml.IntoElem();
+            xml.FindElem("ExpenseId");
+            expenseId = atoi((xml.GetElemContent()).c_str());
             xml.FindElem("UserId");
             if (atoi((xml.GetElemContent()).c_str()) == CURRENT_USER_ID)
             {
-                expense.setUserId(atoi((xml.GetElemContent()).c_str()));
-                xml.FindElem("ExpenseId");
-                expense.setExpenseId(atoi((xml.GetElemContent()).c_str()));
+                expense.setUserId(CURRENT_USER_ID);
+                expense.setExpenseId(expenseId);
                 xml.FindElem("Date");
                 expense.setDate(date.changeDateToIntNumber(xml.GetElemContent()));
                 xml.FindElem("Item");
