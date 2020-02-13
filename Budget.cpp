@@ -55,3 +55,7 @@ void Budget::viewCurrentMonthBalance()
 {
     financeManager -> viewCurrentMonthBalance();
 }
+void Budget::viewLastMonthBalance()
+{
+    financeManager -> viewLastMonthBalance();
+}
