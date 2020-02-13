@@ -83,11 +83,11 @@ void FinanceManager::viewAllIncomes()
 }
 void FinanceManager::viewIncome(vector <Income>::iterator itr)
 {
-    cout << itr -> getIncomeId() << endl;
-    cout << itr -> getUserId() << endl;
-    cout << date.changeDateTostring(itr -> getDate()) << endl;
-    cout << itr -> getItem() << endl;
-    cout << itr -> getAmount() << endl;
+    cout << "Income ID:   " << itr -> getIncomeId() << endl;
+    cout << "User ID:     " << itr -> getUserId() << endl;
+    cout << "Date:        " << date.changeDateTostring(itr -> getDate()) << endl;
+    cout << "Item:        " << itr -> getItem() << endl;
+    cout << "Amount:      " << itr -> getAmount() << endl;
 }
 void FinanceManager::viewAllExpenses()
 {
@@ -100,9 +100,83 @@ void FinanceManager::viewAllExpenses()
 }
 void FinanceManager::viewExpense(vector <Expense>::iterator itr)
 {
-    cout << itr -> getExpenseId() << endl;
-    cout << itr -> getUserId() << endl;
-    cout << date.changeDateTostring(itr -> getDate()) << endl;
-    cout << itr -> getItem() << endl;
-    cout << itr -> getAmount() << endl;
+    cout << "Expense ID:  " << itr -> getExpenseId() << endl;
+    cout << "User ID:     " << itr -> getUserId() << endl;
+    cout << "Date:        " << date.changeDateTostring(itr -> getDate()) << endl;
+    cout << "Item:        " << itr -> getItem() << endl;
+    cout << "Amount:      " << itr -> getAmount() << endl;
+}
+void FinanceManager::viewCurrentMonthBalance()
+{
+    int currentDate = date.changeDateToIntNumber(date.getCurrentDateFromSystem());
+    int minDate = (currentDate/100)*100;
+    int maxDate = (currentDate/100 + 1)*100;
+
+    system("cls");
+
+    sortIncomesByDate();
+    cout << ">>> INCOMES OF CURRENT MONTH  <<<\n" << endl;
+    viewSelectedIncomes(minDate, maxDate);
+
+
+    sortExpensesByDate();
+    cout << ">>> EXPENSES OF CURRENT MONTH <<<\n" << endl;
+    viewSelectedExpenses(minDate, maxDate);
+
+    cout << ">>>   CURRENT MONTH SUMMARY   <<<\n" << endl;
+    cout << "\nTotal income:     " << totalIncome << endl;
+    cout << "Total expense:    " << totalExpense << endl;
+    cout << "Month Balance:    " << totalIncome - totalExpense << endl << endl;
+
+    system("pause");
+}
+void FinanceManager::sortIncomesByDate()
+{
+    sort(incomes.begin(), incomes.end(), Income());
+}
+void FinanceManager::sortExpensesByDate()
+{
+    sort(expenses.begin(), expenses.end(), Expense());
+}
+void FinanceManager::viewSelectedIncomes(int minDate, int maxDate)
+{
+    bool incomeExist = false;
+    for (vector <Income>::iterator itr = incomes.begin(); itr != incomes.end(); itr++)
+    {
+        int date = itr -> getDate();
+        if(date > minDate && date < maxDate)
+        {
+            incomeExist = true;
+            calculateTotalIncome(itr);
+            viewIncome(itr);
+            cout << endl;
+        }
+    }
+    if (!incomeExist)
+        cout << "There were no incomes.\n" << endl;
+}
+void FinanceManager::viewSelectedExpenses(int minDate, int maxDate)
+{
+    bool expenseExist = false;
+    for (vector <Expense>::iterator itr = expenses.begin(); itr != expenses.end(); itr++)
+    {
+        int date = itr -> getDate();
+        if(date > minDate && date < maxDate)
+        {
+            expenseExist = true;
+            calculateTotalExpense(itr);
+            viewExpense(itr);
+            cout << endl;
+        }
+    }
+    if (!expenseExist)
+        cout << "There were no expenses.\n" << endl;
+}
+void FinanceManager::calculateTotalIncome(vector <Income>::iterator itr)
+{
+    totalIncome += itr -> getAmount();
+}
+void FinanceManager::calculateTotalExpense(vector <Expense>::iterator itr)
+{
+    totalExpense += itr -> getAmount();
 }
