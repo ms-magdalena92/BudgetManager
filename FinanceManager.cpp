@@ -180,3 +180,27 @@ void FinanceManager::calculateTotalExpense(vector <Expense>::iterator itr)
 {
     totalExpense += itr -> getAmount();
 }
+void FinanceManager::viewLastMonthBalance()
+{
+    int currentDate = date.changeDateToIntNumber(date.getCurrentDateFromSystem());
+    int minDate = (currentDate/100 - 1)*100;
+    int maxDate = (currentDate/100)*100;
+
+    system("cls");
+
+    sortIncomesByDate();
+    cout << ">>> INCOMES OF LAST MONTH  <<<\n" << endl;
+    viewSelectedIncomes(minDate, maxDate);
+
+
+    sortExpensesByDate();
+    cout << ">>> EXPENSES OF LAST MONTH <<<\n" << endl;
+    viewSelectedExpenses(minDate, maxDate);
+
+    cout << ">>>   LAST MONTH SUMMARY   <<<\n" << endl;
+    cout << "\nTotal income:     " << totalIncome << endl;
+    cout << "Total expense:    " << totalExpense << endl;
+    cout << "Month Balance:    " << totalIncome - totalExpense << endl << endl;
+
+    system("pause");
+}

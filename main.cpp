@@ -50,7 +50,7 @@ int main()
                 budget.viewCurrentMonthBalance();
                 break;
             case '4':
-                //budget.viewLastMonthBalance();
+                budget.viewLastMonthBalance();
                 break;
             case '5':
                 //budget.viewBalanceOfSelectedPeriod();
