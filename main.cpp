@@ -53,7 +53,7 @@ int main()
                 budget.viewLastMonthBalance();
                 break;
             case '5':
-                //budget.viewBalanceOfSelectedPeriod();
+                budget.viewBalanceOfSelectedPeriod();
                 break;
             case '6':
                 //budget.changeCurrentUserPassword();

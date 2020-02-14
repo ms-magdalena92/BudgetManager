@@ -8,9 +8,10 @@ int Date::getDateInteger()
 {
     return dateInteger;
 }
-void Date::getDate()
+void Date::getDateFromUser()
 {
     char choice;
+    cout << "Do you want to use today's date? (Y/N)" << endl;
     while(true)
     {
         choice = AdjuvantMethods::getChar();

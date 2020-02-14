@@ -20,8 +20,7 @@ Income FinanceManager::provideNewIncomeData()
 
     system("cls");
     cout << " >>> ADDING NEW INCOME <<<" << endl << endl;
-    cout << "Do you want to add income with today's date? (Y/N)" << endl;
-    date.getDate();
+    date.getDateFromUser();
     cout << "Enter item: ";
     cin.sync();
     item = AdjuvantMethods::getLine();
@@ -56,8 +55,7 @@ Expense FinanceManager::provideNewExpenseData()
 
     system("cls");
     cout << " >>> ADDING NEW EXPENSE <<<" << endl << endl;
-    cout << "Do you want to add expense with today's date? (Y/N)" << endl;
-    date.getDate();
+    date.getDateFromUser();
     cout << "Enter item: ";
     cin.sync();
     item = AdjuvantMethods::getLine();
@@ -109,7 +107,7 @@ void FinanceManager::viewExpense(vector <Expense>::iterator itr)
 void FinanceManager::viewCurrentMonthBalance()
 {
     int currentDate = date.changeDateToIntNumber(date.getCurrentDateFromSystem());
-    int minDate = (currentDate/100)*100;
+    int minDate = (currentDate/100)*100 + 1;
     int maxDate = (currentDate/100 + 1)*100;
 
     system("cls");
@@ -144,7 +142,7 @@ void FinanceManager::viewSelectedIncomes(int minDate, int maxDate)
     for (vector <Income>::iterator itr = incomes.begin(); itr != incomes.end(); itr++)
     {
         int date = itr -> getDate();
-        if(date > minDate && date < maxDate)
+        if(date >= minDate && date <= maxDate)
         {
             incomeExist = true;
             calculateTotalIncome(itr);
@@ -161,7 +159,7 @@ void FinanceManager::viewSelectedExpenses(int minDate, int maxDate)
     for (vector <Expense>::iterator itr = expenses.begin(); itr != expenses.end(); itr++)
     {
         int date = itr -> getDate();
-        if(date > minDate && date < maxDate)
+        if(date >= minDate && date <= maxDate)
         {
             expenseExist = true;
             calculateTotalExpense(itr);
@@ -183,7 +181,7 @@ void FinanceManager::calculateTotalExpense(vector <Expense>::iterator itr)
 void FinanceManager::viewLastMonthBalance()
 {
     int currentDate = date.changeDateToIntNumber(date.getCurrentDateFromSystem());
-    int minDate = (currentDate/100 - 1)*100;
+    int minDate = (currentDate/100 - 1)*100 + 1;
     int maxDate = (currentDate/100)*100;
 
     system("cls");
@@ -198,6 +196,48 @@ void FinanceManager::viewLastMonthBalance()
     viewSelectedExpenses(minDate, maxDate);
 
     cout << ">>>   LAST MONTH SUMMARY   <<<\n" << endl;
+    cout << "\nTotal income:     " << totalIncome << endl;
+    cout << "Total expense:    " << totalExpense << endl;
+    cout << "Month Balance:    " << totalIncome - totalExpense << endl << endl;
+
+    system("pause");
+}
+void FinanceManager::viewBalanceOfSelectedPeriod()
+{
+    system("cls");
+
+    int date1 = 0, date2 = 0, minDate = 0, maxDate = 0;
+    cout << "Enter a start date and an end date of period that you want to review: " << endl;
+    cout << "\nEnter a start date: " << endl;
+    date.getDateFromUser();
+    date1 = date.getDateInteger();
+    cout << "\nEnter an end date: " << endl;
+    date.getDateFromUser();
+    date2 = date.getDateInteger();
+
+    if (date1 < date2)
+    {
+        minDate = date1;
+        maxDate = date2;
+    }
+    else
+    {
+        minDate = date2;
+        maxDate = date1;
+    }
+
+    system("cls");
+
+    sortIncomesByDate();
+    cout << ">>> INCOMES OF SELECTED PERIOD  <<<\n" << endl;
+    viewSelectedIncomes(minDate, maxDate);
+
+
+    sortExpensesByDate();
+    cout << ">>> EXPENSES OF SELECTED PERIOD <<<\n" << endl;
+    viewSelectedExpenses(minDate, maxDate);
+
+    cout << ">>>   SELECTED PERIOD SUMMARY   <<<\n" << endl;
     cout << "\nTotal income:     " << totalIncome << endl;
     cout << "Total expense:    " << totalExpense << endl;
     cout << "Month Balance:    " << totalIncome - totalExpense << endl << endl;

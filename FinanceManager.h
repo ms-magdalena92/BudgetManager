@@ -52,6 +52,7 @@ public:
     void viewAllExpenses();
     void viewCurrentMonthBalance();
     void viewLastMonthBalance();
+    void viewBalanceOfSelectedPeriod();
 };
 
 #endif // FINANSEMANAGER_H
