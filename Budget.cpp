@@ -59,3 +59,7 @@ void Budget::viewLastMonthBalance()
 {
     financeManager -> viewLastMonthBalance();
 }
+void Budget::viewBalanceOfSelectedPeriod()
+{
+    financeManager -> viewBalanceOfSelectedPeriod();
+}

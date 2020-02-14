@@ -37,6 +37,7 @@ public:
     void viewAllExpenses();
     void viewCurrentMonthBalance();
     void viewLastMonthBalance();
+    void viewBalanceOfSelectedPeriod();
 };
 
 #endif // BUDGET_H
