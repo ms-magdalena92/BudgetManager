@@ -37,7 +37,7 @@ public:
     int getDateInteger();
     string getCurrentDateFromSystem();
     int changeDateToIntNumber(string sdate);
-    void getDate();
+    void getDateFromUser();
     string changeDateTostring(int date);
 };
 
