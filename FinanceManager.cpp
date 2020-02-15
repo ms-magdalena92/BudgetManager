@@ -70,7 +70,7 @@ Expense FinanceManager::provideNewExpenseData()
 
     return expense;
 }
-void FinanceManager::viewAllIncomes()
+/*void FinanceManager::viewAllIncomes()
 {
     for (vector <Income>::iterator itr = incomes.begin(); itr != incomes.end(); itr++)
     {
@@ -78,7 +78,7 @@ void FinanceManager::viewAllIncomes()
         cout << endl;
     }
     system("pause");
-}
+}*/
 void FinanceManager::viewIncome(vector <Income>::iterator itr)
 {
     cout << "Income ID:   " << itr -> getIncomeId() << endl;
@@ -87,7 +87,7 @@ void FinanceManager::viewIncome(vector <Income>::iterator itr)
     cout << "Item:        " << itr -> getItem() << endl;
     cout << "Amount:      " << itr -> getAmount() << endl;
 }
-void FinanceManager::viewAllExpenses()
+/*void FinanceManager::viewAllExpenses()
 {
     for (vector <Expense>::iterator itr = expenses.begin(); itr != expenses.end(); itr++)
     {
@@ -95,7 +95,7 @@ void FinanceManager::viewAllExpenses()
         cout << endl;
     }
     system("pause");
-}
+}*/
 void FinanceManager::viewExpense(vector <Expense>::iterator itr)
 {
     cout << "Expense ID:  " << itr -> getExpenseId() << endl;
@@ -124,7 +124,7 @@ void FinanceManager::viewCurrentMonthBalance()
     cout << ">>>   CURRENT MONTH SUMMARY   <<<\n" << endl;
     cout << "\nTotal income:     " << totalIncome << endl;
     cout << "Total expense:    " << totalExpense << endl;
-    cout << "Month Balance:    " << totalIncome - totalExpense << endl << endl;
+    cout << "Month Balance:    " << showpos << totalIncome - totalExpense << endl << endl;
 
     system("pause");
 }
@@ -198,7 +198,7 @@ void FinanceManager::viewLastMonthBalance()
     cout << ">>>   LAST MONTH SUMMARY   <<<\n" << endl;
     cout << "\nTotal income:     " << totalIncome << endl;
     cout << "Total expense:    " << totalExpense << endl;
-    cout << "Month Balance:    " << totalIncome - totalExpense << endl << endl;
+    cout << "Month Balance:    " << showpos << totalIncome - totalExpense << endl << endl;
 
     system("pause");
 }
@@ -240,7 +240,7 @@ void FinanceManager::viewBalanceOfSelectedPeriod()
     cout << ">>>   SELECTED PERIOD SUMMARY   <<<\n" << endl;
     cout << "\nTotal income:     " << totalIncome << endl;
     cout << "Total expense:    " << totalExpense << endl;
-    cout << "Month Balance:    " << totalIncome - totalExpense << endl << endl;
+    cout << "Month Balance:    " << showpos << totalIncome - totalExpense << endl << endl;
 
     system("pause");
 }

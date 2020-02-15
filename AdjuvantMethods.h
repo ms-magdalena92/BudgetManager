@@ -3,9 +3,7 @@
 
 #include <iostream>
 #include <sstream>
-#include <windows.h>
-#include <ctime>
-#include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -22,6 +20,7 @@ public:
     static float stringToFloatConversion(string snumber);
     static bool isLetter(char choice);
     static float getFloatNumber();
+    static string convertFirstLetterToUppercaseRestLower(string text);
 };
 
 #endif // ADJUVANTMETHODS_H

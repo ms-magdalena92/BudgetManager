@@ -27,7 +27,6 @@ public:
     void userSignUp();
     void userSignIn();
     void userSignOut();
-    void viewAllUsers();
     bool isUserLoggedIn();
     char selectFromMainMenu();
     char selectFromUserMenu();
@@ -39,6 +38,7 @@ public:
     void viewLastMonthBalance();
     void viewBalanceOfSelectedPeriod();
     void changeCurrentUserPassword();
+    //void viewAllUsers();
 };
 
 #endif // BUDGET_H

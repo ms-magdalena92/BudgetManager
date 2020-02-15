@@ -2,16 +2,9 @@
 #define FINANCEMANAGER_H
 
 #include <iostream>
-#include <vector>
-#include <windows.h>
-#include <algorithm>
 
-#include "Income.h"
-#include "Expense.h"
-#include "AdjuvantMethods.h"
 #include "IncomesFile.h"
 #include "ExpensesFile.h"
-#include "Date.h"
 
 using namespace std;
 
@@ -48,8 +41,8 @@ public:
     };
     void addIncome();
     void addExpense();
-    void viewAllIncomes();
-    void viewAllExpenses();
+    //void viewAllIncomes();
+    //void viewAllExpenses();
     void viewCurrentMonthBalance();
     void viewLastMonthBalance();
     void viewBalanceOfSelectedPeriod();
