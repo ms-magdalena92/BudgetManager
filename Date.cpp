@@ -132,10 +132,10 @@ string Date::createDate()
 }
 bool Date::isDateInProperRange()
 {
-    int minDate = 20000101;
-    int maxDate = changeDateToIntNumber(getCurrentDateFromSystem());
+    int minDate = 20000101; // 2000-01-01
+    int maxDate = (changeDateToIntNumber(getCurrentDateFromSystem())/100 + 1) * 100; // yyyy-nextMonth-00
 
-    if (dateInteger >= minDate && dateInteger <= maxDate)
+    if (dateInteger >= minDate && dateInteger < maxDate)
         return true;
     return false;
 }
