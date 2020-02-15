@@ -2,7 +2,6 @@
 #define USERSFILE_H
 
 #include <iostream>
-#include <vector>
 
 #include "User.h"
 #include "XmlFile.h"

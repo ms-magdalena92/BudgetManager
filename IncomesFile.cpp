@@ -27,7 +27,7 @@ vector<Income> IncomesFile::loadIncomesOfCurrentUserFromXmlFile(int CURRENT_USER
                 xml.FindElem("Item");
                 income.setItem(xml.GetElemContent());
                 xml.FindElem("Amount");
-                income.setAmount(atof((xml.GetElemContent()).c_str()));
+                income.setAmount(AdjuvantMethods::stringToFloatConversion(xml.GetElemContent()));
                 incomes.push_back(income);
             }
             xml.OutOfElem();

@@ -2,12 +2,8 @@
 #define USERMANAGER_H
 
 #include <iostream>
-#include <vector>
-#include <windows.h>
 
-#include "User.h"
 #include "UsersFile.h"
-#include "AdjuvantMethods.h"
 
 using namespace std;
 
@@ -30,7 +26,7 @@ public:
     void userSignUp();
     void userSignIn();
     void userSignOut();
-    void viewAllUsers();
+    //void viewAllUsers();
     bool isUserLoggedIn();
     char selectFromMainMenu();
     char selectFromUserMenu();

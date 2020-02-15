@@ -19,10 +19,10 @@ void Budget::userSignOut()
     financeManager = NULL;
 
 }
-void Budget::viewAllUsers()
+/*void Budget::viewAllUsers()
 {
     userManager.viewAllUsers();
-}
+}*/
 bool Budget::isUserLoggedIn()
 {
     userManager.isUserLoggedIn();
@@ -43,14 +43,14 @@ void Budget::addExpense()
 {
     financeManager -> addExpense();
 }
-void Budget::viewAllIncomes()
+/*void Budget::viewAllIncomes()
 {
     financeManager -> viewAllIncomes();
 }
 void Budget::viewAllExpenses()
 {
     financeManager -> viewAllExpenses();
-}
+}*/
 void Budget::viewCurrentMonthBalance()
 {
     financeManager -> viewCurrentMonthBalance();

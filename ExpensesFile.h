@@ -4,8 +4,6 @@
 #include "XmlFile.h"
 #include "Income.h"
 #include "Expense.h"
-#include "AdjuvantMethods.h"
-#include "Date.h"
 
 using namespace std;
 

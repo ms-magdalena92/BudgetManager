@@ -61,11 +61,11 @@ int main()
             case '7':
                 budget.userSignOut();
                 break;
-            case '8':
+            /*case '8':
                 budget.viewAllIncomes();
                 break;
             case '9':
-                budget.viewAllExpenses();
+                budget.viewAllExpenses();*/
             }
         }
     }

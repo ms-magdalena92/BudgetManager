@@ -16,9 +16,9 @@ vector<Expense> ExpensesFile::loadExpensesOfCurrentUserFromXmlFile(int CURRENT_U
             Expense expense;
             xml.IntoElem();
             xml.FindElem("ExpenseId");
-            expenseId = atoi((xml.GetElemContent()).c_str());
+            expenseId = AdjuvantMethods::stringToIntConversion(xml.GetElemContent());
             xml.FindElem("UserId");
-            if (atoi((xml.GetElemContent()).c_str()) == CURRENT_USER_ID)
+            if(AdjuvantMethods::stringToIntConversion(xml.GetElemContent()) == CURRENT_USER_ID)
             {
                 expense.setUserId(CURRENT_USER_ID);
                 expense.setExpenseId(expenseId);
@@ -27,7 +27,7 @@ vector<Expense> ExpensesFile::loadExpensesOfCurrentUserFromXmlFile(int CURRENT_U
                 xml.FindElem("Item");
                 expense.setItem(xml.GetElemContent());
                 xml.FindElem("Amount");
-                expense.setAmount(atof((xml.GetElemContent()).c_str()));
+                expense.setAmount(AdjuvantMethods::stringToFloatConversion(xml.GetElemContent()));
                 expenses.push_back(expense);
             }
             xml.OutOfElem();

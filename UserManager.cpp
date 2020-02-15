@@ -34,13 +34,13 @@ User UserManager::provideNewUserData()
 
     string name;
     cout << "Enter name: ";
-    cin >> name;
-    user.setName(name);
+    name = AdjuvantMethods::getLine();
+    user.setName(AdjuvantMethods::convertFirstLetterToUppercaseRestLower(name));
 
     string surname;
     cout << "Enter surname: ";
-    cin >> surname;
-    user.setSurname(surname);
+    surname = AdjuvantMethods::getLine();
+    user.setSurname(AdjuvantMethods::convertFirstLetterToUppercaseRestLower(surname));
 
     return user;
 }
@@ -108,7 +108,7 @@ void UserManager::userSignIn()
     system("pause");
     return;
 }
-void UserManager::viewAllUsers()
+/*void UserManager::viewAllUsers()
 {
     if (users.empty()==false)
     {
@@ -123,7 +123,7 @@ void UserManager::viewAllUsers()
         system("pause");
     }
     return;
-}
+}*/
 bool UserManager::isUserLoggedIn()
 {
     if(currentUserId>0)

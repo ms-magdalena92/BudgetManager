@@ -3,8 +3,6 @@
 
 #include "XmlFile.h"
 #include "Income.h"
-#include "AdjuvantMethods.h"
-#include "Date.h"
 
 using namespace std;
 
