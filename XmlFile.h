@@ -3,10 +3,9 @@
 
 #include <iostream>
 #include <vector>
-#include <sstream>
-#include <string>
 
 #include "Markup.h"
+#include "AdjuvantMethods.h"
 
 using namespace std;
 

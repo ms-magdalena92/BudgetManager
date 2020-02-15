@@ -3,9 +3,12 @@
 void UserManager::userSignUp()
 {
     User user = provideNewUserData();
+    bool isUserAdded = false;
+
     users.push_back(user);
-    usersFile.addUserToXmlFile(user);
-    cout << endl << "Your account was successfully created." << endl;
+    isUserAdded = usersFile.addUserToXmlFile(user);
+    if(isUserAdded)
+        cout << endl << "Your account was successfully created." << endl;
     system("pause");
 }
 User UserManager::provideNewUserData()
@@ -155,6 +158,8 @@ char UserManager::selectFromUserMenu()
     cout << "5. View balance of the selected period" << endl;
     cout << "6. Change password" << endl;
     cout << "7. Sign out" << endl;
+    cout << "8. View all incomes" << endl;
+    cout << "9. View all expenses" << endl;
     cout << "----------------------------------------" << endl;
     choice = AdjuvantMethods::getChar();
 
@@ -167,4 +172,25 @@ void UserManager::userSignOut()
 int UserManager::getCurrentUserId()
 {
     return currentUserId;
+}
+void UserManager::changeCurrentUserPassword()
+{
+    string newPassword = "";
+    cout << "Enter password: ";
+    cin >> newPassword;
+    bool isPasswordChanged = false;
+
+    for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++)
+    {
+        if (itr -> getUserId() == currentUserId)
+        {
+            itr -> setPassword(newPassword);
+            isPasswordChanged = usersFile.changeUserPassword(itr);
+
+            if (isPasswordChanged)
+                cout << "\nYour password has been changed successfully." << endl << endl;
+
+            system("pause");
+        }
+    }
 }

@@ -56,7 +56,7 @@ int main()
                 budget.viewBalanceOfSelectedPeriod();
                 break;
             case '6':
-                //budget.changeCurrentUserPassword();
+                budget.changeCurrentUserPassword();
                 break;
             case '7':
                 budget.userSignOut();

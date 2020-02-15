@@ -14,7 +14,7 @@ vector <User> UsersFile::loadUsersFromXmlFile()
             User user;
             xml.IntoElem();
             xml.FindElem("UserId");
-            user.setUserId(atoi((xml.GetElemContent()).c_str()));
+            user.setUserId(AdjuvantMethods::stringToIntConversion(xml.GetElemContent()));
             xml.FindElem("Name");
             user.setName(xml.GetElemContent());
             xml.FindElem("Surname");
@@ -29,7 +29,7 @@ vector <User> UsersFile::loadUsersFromXmlFile()
     }
     return users;
 }
-void UsersFile::addUserToXmlFile(User user)
+bool UsersFile::addUserToXmlFile(User user)
 {
     CMarkup xml;
 
@@ -50,5 +50,39 @@ void UsersFile::addUserToXmlFile(User user)
     xml.OutOfElem();
     xml.Save(getFilename());
     if (!fileExist(xml))
+    {
         cout << "Cannot open the " << getFilename() << " file." << endl;
+        return false;
+    }
+    return true;
+}
+bool UsersFile::changeUserPassword(vector <User>::iterator itr)
+{
+    CMarkup xml;
+
+    if (fileExist(xml))
+    {
+        xml.FindElem();
+        xml.IntoElem();
+        while(xml.FindElem("User"))
+        {
+            xml.IntoElem();
+            xml.FindElem("UserId");
+            int userId = AdjuvantMethods::stringToIntConversion(xml.GetElemContent());
+            if (userId == itr -> getUserId())
+            {
+                xml.FindElem("Password");
+                xml.SetData(itr -> getPassword());
+                xml.Save(getFilename());
+                return true;
+            }
+            xml.OutOfElem();
+        }
+    }
+    else
+    {
+        cout << "Cannot open the " << getFilename() << " file." << endl;
+        return false;
+    }
+
 }
