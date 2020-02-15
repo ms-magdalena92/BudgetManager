@@ -35,6 +35,7 @@ public:
     char selectFromMainMenu();
     char selectFromUserMenu();
     int getCurrentUserId();
+    void changeCurrentUserPassword();
 };
 
 #endif // USERMANAGER_H

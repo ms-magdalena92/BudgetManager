@@ -63,3 +63,7 @@ void Budget::viewBalanceOfSelectedPeriod()
 {
     financeManager -> viewBalanceOfSelectedPeriod();
 }
+void Budget::changeCurrentUserPassword()
+{
+    userManager.changeCurrentUserPassword();
+}

@@ -38,6 +38,7 @@ public:
     void viewCurrentMonthBalance();
     void viewLastMonthBalance();
     void viewBalanceOfSelectedPeriod();
+    void changeCurrentUserPassword();
 };
 
 #endif // BUDGET_H
