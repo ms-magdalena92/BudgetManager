@@ -11,6 +11,7 @@ class AdjuvantMethods
 {
     static bool isFloatNumber(string input);
     static string changeCommaToDot(string input);
+
 public:
     static char getChar();
     static string getLine();

@@ -2,7 +2,6 @@
 
 vector<Income> IncomesFile::loadIncomesOfCurrentUserFromXmlFile(int CURRENT_USER_ID)
 {
-    Date date;
     CMarkup xml;
     vector <Income> incomes;
     int incomeId = 0;
@@ -35,7 +34,7 @@ vector<Income> IncomesFile::loadIncomesOfCurrentUserFromXmlFile(int CURRENT_USER
     }
     return incomes;
 }
-void IncomesFile::addIncomeToXmlFile(Income income, Date date)
+bool IncomesFile::addIncomeToXmlFile(Income income, Date date)
 {
     CMarkup xml;
 
@@ -56,6 +55,12 @@ void IncomesFile::addIncomeToXmlFile(Income income, Date date)
     xml.OutOfElem();
     xml.Save(getFilename());
     lastIncomeId++;
+    if (!fileExist(xml))
+    {
+        cout << "Cannot open the " << getFilename() << " file." << endl;
+        return false;
+    }
+    return true;
 }
 int IncomesFile::getLastIncomeIdFromFile()
 {

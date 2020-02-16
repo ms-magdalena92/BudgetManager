@@ -10,7 +10,6 @@ using namespace std;
 class ExpensesFile : public XmlFile
 {
     int lastExpenseId;
-    Date date;
 
     int getLastExpenseIdFromFile();
 public:
@@ -19,7 +18,7 @@ public:
         lastExpenseId = getLastExpenseIdFromFile();
     };
     vector<Expense> loadExpensesOfCurrentUserFromXmlFile(int CURRENT_USER_ID);
-    void addExpenseToXmlFile(Expense expense, Date date);
+    bool addExpenseToXmlFile(Expense expense, Date date);
     int getLastExpenseId();
 };
 

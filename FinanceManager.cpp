@@ -4,10 +4,14 @@ void FinanceManager::addIncome()
 {
     Income income;
     income = provideNewIncomeData();
+    bool isIncomeAdded = false;
 
     incomes.push_back(income);
-    incomesFile.addIncomeToXmlFile(income,date);
-    cout << endl << "The income was successfully added." << endl;
+    isIncomeAdded = incomesFile.addIncomeToXmlFile(income,date);
+
+    if(isIncomeAdded)
+        cout << endl << "The income has been successfully added." << endl;
+
     system ("pause");
 }
 Income FinanceManager::provideNewIncomeData()
@@ -39,10 +43,14 @@ void FinanceManager::addExpense()
 {
     Expense expense;
     expense = provideNewExpenseData();
+    bool isExpenseAdded = false;
 
     expenses.push_back(expense);
-    expensesFile.addExpenseToXmlFile(expense,date);
-    cout << endl << "The expense was successfully added." << endl;
+    isExpenseAdded = expensesFile.addExpenseToXmlFile(expense,date);
+
+    if(isExpenseAdded)
+        cout << endl << "The expense has been successfully added." << endl;
+
     system ("pause");
 }
 Expense FinanceManager::provideNewExpenseData()
@@ -125,6 +133,10 @@ void FinanceManager::viewCurrentMonthBalance()
     cout << "\nTotal income:     " << totalIncome << endl;
     cout << "Total expense:    " << totalExpense << endl;
     cout << "Month Balance:    " << showpos << totalIncome - totalExpense << endl << endl;
+    cout << noshowpos;
+
+    totalIncome = 0;
+    totalExpense = 0;
 
     system("pause");
 }
@@ -199,6 +211,10 @@ void FinanceManager::viewLastMonthBalance()
     cout << "\nTotal income:     " << totalIncome << endl;
     cout << "Total expense:    " << totalExpense << endl;
     cout << "Month Balance:    " << showpos << totalIncome - totalExpense << endl << endl;
+    cout << noshowpos;
+
+    totalIncome = 0;
+    totalExpense = 0;
 
     system("pause");
 }
@@ -241,6 +257,10 @@ void FinanceManager::viewBalanceOfSelectedPeriod()
     cout << "\nTotal income:     " << totalIncome << endl;
     cout << "Total expense:    " << totalExpense << endl;
     cout << "Month Balance:    " << showpos << totalIncome - totalExpense << endl << endl;
+    cout << noshowpos;
+
+    totalIncome = 0;
+    totalExpense = 0;
 
     system("pause");
 }

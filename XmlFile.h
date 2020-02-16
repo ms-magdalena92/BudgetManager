@@ -15,6 +15,7 @@ class XmlFile
     const string FILENAME;
 
 public:
+    Date date;
     XmlFile(string filename):FILENAME(filename){}
     bool fileExist(CMarkup &xml);
     string getFilename();

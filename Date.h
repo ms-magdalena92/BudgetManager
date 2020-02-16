@@ -18,7 +18,7 @@ class Date
     string syear, smonth, sday;
 
     string createDate();
-    bool isYearLeap (int year);
+    bool isYearLeap(int year);
     bool isDateInProperRange();
     bool isDateCorrect();
 
