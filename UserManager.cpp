@@ -34,11 +34,14 @@ User UserManager::provideNewUserData()
 
     string name;
     cout << "Enter name: ";
+    cin.sync();
     name = AdjuvantMethods::getLine();
     user.setName(AdjuvantMethods::convertFirstLetterToUppercaseRestLower(name));
 
+
     string surname;
     cout << "Enter surname: ";
+    cin.sync();
     surname = AdjuvantMethods::getLine();
     user.setSurname(AdjuvantMethods::convertFirstLetterToUppercaseRestLower(surname));
 
@@ -158,8 +161,8 @@ char UserManager::selectFromUserMenu()
     cout << "5. View balance of the selected period" << endl;
     cout << "6. Change password" << endl;
     cout << "7. Sign out" << endl;
-    cout << "8. View all incomes" << endl;
-    cout << "9. View all expenses" << endl;
+    //cout << "8. View all incomes" << endl;
+    //cout << "9. View all expenses" << endl;
     cout << "----------------------------------------" << endl;
     choice = AdjuvantMethods::getChar();
 
@@ -188,7 +191,7 @@ void UserManager::changeCurrentUserPassword()
             isPasswordChanged = usersFile.changeUserPassword(itr);
 
             if (isPasswordChanged)
-                cout << "\nYour password has been changed successfully." << endl << endl;
+                cout << "\nYour password has been successfully changed." << endl << endl;
 
             system("pause");
         }

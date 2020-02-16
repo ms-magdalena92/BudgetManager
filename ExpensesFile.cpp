@@ -2,7 +2,6 @@
 
 vector<Expense> ExpensesFile::loadExpensesOfCurrentUserFromXmlFile(int CURRENT_USER_ID)
 {
-    Date date;
     CMarkup xml;
     vector <Expense> expenses;
     int expenseId = 0;
@@ -35,7 +34,7 @@ vector<Expense> ExpensesFile::loadExpensesOfCurrentUserFromXmlFile(int CURRENT_U
     }
     return expenses;
 }
-void ExpensesFile::addExpenseToXmlFile(Expense expense, Date date)
+bool ExpensesFile::addExpenseToXmlFile(Expense expense, Date date)
 {
     CMarkup xml;
 
@@ -56,6 +55,12 @@ void ExpensesFile::addExpenseToXmlFile(Expense expense, Date date)
     xml.OutOfElem();
     xml.Save(getFilename());
     lastExpenseId++;
+    if (!fileExist(xml))
+    {
+        cout << "Cannot open the " << getFilename() << " file." << endl;
+        return false;
+    }
+    return true;
 }
 int ExpensesFile::getLastExpenseIdFromFile()
 {

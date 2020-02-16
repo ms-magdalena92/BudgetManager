@@ -32,13 +32,13 @@ public:
     char selectFromUserMenu();
     void addIncome();
     void addExpense();
-    void viewAllIncomes();
-    void viewAllExpenses();
     void viewCurrentMonthBalance();
     void viewLastMonthBalance();
     void viewBalanceOfSelectedPeriod();
     void changeCurrentUserPassword();
     //void viewAllUsers();
+    //void viewAllIncomes();
+    //void viewAllExpenses();
 };
 
 #endif // BUDGET_H
