@@ -1,18 +1,18 @@
 # BudgetManager
 ## Personal Budget Manager console app based on C++ (OOP) and with use of XML files.
 
-# Features:
+### Features:
 - signing up/in/out
 - password changing 
 - adding income
 - adding expense
 - viewing balance (current month, last month, custom period of time)
 
-# Improved Web version of app
-https://www.mybudget.magdalena-slomiany.pl/
-https://github.com/ms-magdalena92/BudgetManager_MVC
+### Improved Web version of app
+- https://www.mybudget.magdalena-slomiany.pl/
+- https://github.com/ms-magdalena92/BudgetManager_MVC
 
-# Screenshots
+### Screenshots
 ![bm1](https://user-images.githubusercontent.com/59318234/120065548-238a4100-c072-11eb-813a-437d3e7f795b.png)
 
 ![bm2](https://user-images.githubusercontent.com/59318234/120065550-24bb6e00-c072-11eb-97eb-254f99d3d006.png)
